@@ -361,9 +361,10 @@ void USBWebCam::set_idle_update_interval(uint32_t idle_update_interval) {
 }
 
 /* ---------------- public API (specific) ---------------- */
-void USBWebCam::add_image_callback(std::function<void(std::shared_ptr<CameraImage>)> &&f) {
-  this->new_image_callback_.add(std::move(f));
+void USBWebCam::add_image_callback(std::function<void(std::shared_ptr<CameraImage>)> callback) {
+  this->new_image_callback_.add(std::move(callback));
 }
+
 void USBWebCam::add_stream_start_callback(std::function<void()> &&callback) {
   this->stream_start_callback_.add(std::move(callback));
 }

@@ -119,7 +119,8 @@ class USBWebCam : public camera::Camera {
   void request_image(camera::CameraRequester requester) override;
   void update_camera_parameters();
 
-  void add_image_callback(std::function<void(std::shared_ptr<camera::CameraImage>)> &&callback);
+  
+  void add_image_callback(std::function<void(std::shared_ptr<camera::CameraImage>)> &&callback) override;
   void add_stream_start_callback(std::function<void()> &&callback);
   void add_stream_stop_callback(std::function<void()> &&callback);
   camera::CameraImageReader *create_image_reader() override;
